@@ -1,10 +1,10 @@
 import { firebaseApp } from "./firebaseApp.js";
 import { getAuth, onAuthStateChanged , OAuthProvider, signInWithPopup, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getActiveStore } from "../FlashcardHub/userPreferences.js";
+import { getActiveStore } from "../userPreferences.js";
 
 import { firestoreDatabase } from "./firebaseApp.js";
 import { getDocs, collection } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-import { DB_NAME } from '../FlashcardHub/indexedDbOperations.js';
+import { DB_NAME } from '../indexedDbOperations.js';
 
 
 const authProviders = {
