@@ -59,7 +59,7 @@ export const pageElements = {
                                 "img",
                                 {
                                     "id"            : "microsoftLogo",
-                                    "src"           : "../src/media/images/microsoftLogo.svg",
+                                    "src"           : "../media/images/microsoftLogo.svg",
                                 }
                             ),
         cardContainer     : createFluentWebComponent("fluent-card", { "id" : "cardContainer" }),
