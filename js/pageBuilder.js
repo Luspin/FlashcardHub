@@ -1,4 +1,4 @@
-import { pageElements } from "/pageElements.js";
+import { pageElements } from "./pageElements.js";
 
 export function loadStylesheets() {
     // local CSS resources

@@ -1,4 +1,4 @@
-import { loadStylesheets, loadPageElements } from "pageBuilder.js";
+import { loadStylesheets, loadPageElements } from "./pageBuilder.js";
 import { addEventListeners } from "./eventListeners.js";
 import { loadUserPreferences } from "./userPreferences.js";
 
