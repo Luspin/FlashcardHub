@@ -1,0 +1,25 @@
+@import "primaryElements.css";
+@import "secondaryElements.css";
+@import "uiElements.css";
+
+body {
+    /* Display & Box Model */
+    height           : 98vh;           /* 98% Viewport Height */
+    display          : flex;
+    flex-direction   : column;         /* stack children Vertically */
+    align-items      : center;         /* center children Horizontally*/
+    margin           : 1vh;            /* 1% Viewport Height */
+    /* Typography */
+    font-family      : "Aptos", "Segoe UI Variable", "Segoe UI", sans-serif;
+    font-size        : 14px;
+    color            : #2f2f2f;
+    /* Visual Styling */
+    background-color : #faf9f8;
+}
+
+body.darkTheme {
+    /* Typography */
+    color            : #faf9f8;
+    /* Visual Styling */
+    background-color : #252423;
+}

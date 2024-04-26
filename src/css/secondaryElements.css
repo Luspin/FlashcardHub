@@ -1,0 +1,27 @@
+/* Settings Overlay */
+#settingsOverlay {
+    position         : absolute;
+    height           : 50vh;           /* 50% Viewport Height */
+    width            : 45vh;           /* 45% Viewport Height */
+    min-height       : 250px;
+    min-width        : 200px;
+    padding          : 0 50px 0 50px;  /* 0 Top + Bottom; 50px Left + Right */
+    z-index          : 1;
+    left             : 50%;
+    top              : 50%;
+    transform        : translate(-50%, -50%);
+    overflow-x       : hidden;
+    display          : flex;
+    flex-direction   : column;
+    justify-content  : flex-start;
+    align-items      : center;
+    opacity          : 0;
+    visibility       : hidden;
+    transition       : opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+
+#settingsOverlay.visible {
+    opacity          : 1;
+    visibility       : visible;
+    transition       : opacity 0.5s ease, visibility 0s linear 0s;
+}

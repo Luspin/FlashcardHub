@@ -1,0 +1,18 @@
+#pageHeader {
+    height           : 5vh;            /* 5% Viewport Height */
+    width            : 100%;
+}
+
+#pageMain {
+    width            : 100%;
+    display          : flex;
+    flex-direction   : column;         /* stack children Vertically */
+    flex-grow        : 1;
+    align-items      : center;         /* center children Horizontally*/
+    justify-content  : center;         /* center children Vertically */
+}
+
+#pageFooter {
+    height           : 5vh;            /* 5% Viewport Height */
+    width            : 100%;
+}

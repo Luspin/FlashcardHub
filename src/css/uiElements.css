@@ -1,0 +1,85 @@
+#settingsButton::part(control):hover{
+    background       :#005a9e;
+    color            :white;
+}
+
+#themeToggleButton::part(control):hover{
+    background       :#ffb900;
+    color            :white;
+}
+
+#expandingCell {
+    width            : 100%;
+}
+
+/* Sign in with Microsoft: Branding guidelines for applications */
+/* https://learn.microsoft.com/en-us/entra/identity-platform/howto-add-branding-in-apps */
+#signInContainer {
+    display          : flex;           /* use Flexbox */
+    align-items      : center;         /* center-align content Vertically */
+    font-size        : 12px;
+    font-weight      : 500;
+}
+
+#microsoftLogo {
+    margin           : 5px 10px 5px 0; /* 5px Top; 10px Right; 5px Bottom; 0 Left */
+}
+
+#cardContainer {
+    height           : 40vh;           /* 40% Viewport Height */
+    width            : 40vh;           /* 40% Viewport Height */
+    min-height       : 200px;
+    min-width        : 200px;
+    display          : flex;           /* use Flexbox */
+    flex-direction   : column;         /* stack children Vertically */
+    align-items      : center;         /* center-align children Horizontally */
+}
+
+#cardContainer > * {
+    width            : 100%;
+    display          : flex;           /* use Flexbox */
+    align-items      : center;         /* center-align content Vertically */
+    justify-content  : center;         /* center-align content Horizontally */
+    margin           : 0;              /* remove default Margins */
+}
+
+#cardFace {
+    font-size        : 10vh;           /* 10% Viewport Height */
+    flex-grow        : 1;              /* stretch element's Height to fill available space */
+}
+
+#cardHeader, #cardFace, #cardFooter {
+    /* Prevent Text Selection */
+    -webkit-user-select : none;        /* Safari */
+    -moz-user-select    : none;        /* Firefox */
+    -ms-user-select     : none;        /* Internet Explorer/Edge */
+    user-select         : none;        /* Non-prefixed version, currently supported by Chrome, Opera, and Edge */
+}
+
+#cardHeader, #cardFooter {
+    height           : 15%;
+}
+
+#cardFooterTable {
+    width            : 100%;
+    padding          : 0 2%;           /* 0 Top + Bottom; 2% Left + Right */
+}
+
+#cardFooterTable td {
+    overflow         : hidden;         /* hide Overflow */
+    white-space      : nowrap;         /* prevent Text Wrapping */
+}
+
+#inputField {
+    width            : 30vh;           /* 10% less than #cardContainer */
+    min-width        : 180px;          /* 10% less than #cardContainer */
+    margin           : 2vh 0;          /* 2% VH Top + Bottom; 0% VH Left + Right */
+}
+
+#inputField::part(control) {
+    text-align       : center;
+}
+
+#inputField::part(control):focus::placeholder {
+    color            : transparent;    /* hide placeholder text on Focus */
+}
