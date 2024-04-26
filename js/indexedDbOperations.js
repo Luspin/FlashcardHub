@@ -105,7 +105,7 @@ async function populateDeck(objectStoreName) {
 
                 objectStore.getAll().onsuccess = (event) => {
                     if (event.target.result.length === 0) {
-                        fetch(`../Decks/${objectStoreName}.js`)
+                        fetch(`../FlashcardHub/Decks/${objectStoreName}.js`)
                             .then(httpResponse => httpResponse.json())
                             .then(jsonData => {
                                 const readWriteTransaction = databaseConnection.transaction(objectStoreName, 'readwrite');

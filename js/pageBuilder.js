@@ -2,7 +2,7 @@ import { pageElements } from "./pageElements.js";
 
 export function loadStylesheets() {
     // local CSS resources
-    createCSSLinkFrom('../css/main.css');
+    createCSSLinkFrom('../FlashcardHub/css/main.css');
     // external CSS resources
     createCSSLinkFrom('https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css');
 }
