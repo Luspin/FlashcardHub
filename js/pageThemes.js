@@ -35,7 +35,7 @@ export function restorePageTheme(
             break;
         }
     }
-}
+};
 
 export function togglePageTheme(
     eventDispatcher,
@@ -55,4 +55,4 @@ export function togglePageTheme(
             break;
         }
     }
-}
+};

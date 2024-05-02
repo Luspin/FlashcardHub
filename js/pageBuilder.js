@@ -1,22 +1,30 @@
 import { pageElements } from "./pageElements.js";
+import { activeStore } from "./deckManagement.js";
 
-export function loadStylesheets() {
-    // local CSS resources
-    createCSSLinkFrom('../FlashcardHub/css/main.css');
-    // external CSS resources
-    createCSSLinkFrom('https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css');
-}
+export function loadStylesheets(styleSheets = []) {
+    styleSheets.push(
+        // local CSS files
+        '../css/main.css',
+        // external CSS files
+        'https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css'
+    );
 
-function createCSSLinkFrom(sourceUri) {
-    const linkElement = document.createElement("link");
-    linkElement.rel = "stylesheet";
-    linkElement.type = "text/css";
-    linkElement.href = sourceUri;
-    document.head.appendChild(linkElement);
-}
+    createCSSLinksFrom(styleSheets);
+};
+
+function createCSSLinksFrom(styleSheets = []) {
+    // iterate over the 'styleSheets' collection
+    styleSheets.forEach(styleSheet => {
+        const linkElement = document.createElement("link");
+        linkElement.rel = "stylesheet";
+        linkElement.type = "text/css";
+        linkElement.href = styleSheet;
+        document.head.appendChild(linkElement);
+    });
+};
 
 export function loadPageElements(primaryElements = pageElements.primaryElements) {
-    // iterate over the primaryElements collection
+    // iterate over the 'primaryElements' collection
     Object.keys(primaryElements).forEach(elementKey => {
         const primaryElement = document.body.appendChild(primaryElements[elementKey]);
         // append any necessary childElements
@@ -40,6 +48,20 @@ function appendChildElements(
             pageHeaderTable.rows[0].insertCell(-1)
                 .appendChild(uiElements.themeToggleButton)
                 .appendChild(uiElements.themeToggleIcon);
+            // Deck Toggle Button
+            switch (activeStore) {
+                case "Hiragana":
+                    uiElements.deckToggleButton.textContent = "あ";
+                    break;
+                case "Katakana":
+                    uiElements.deckToggleButton.textContent = "ア";
+                    break;
+                default:
+                    uiElements.deckToggleButton.textContent = "N/A";
+                    break;
+            }
+            pageHeaderTable.rows[0].insertCell(-1)
+                .appendChild(uiElements.deckToggleButton);
             // Expanding Cell
             pageHeaderTable.rows[0]
                 .appendChild(uiElements.expandingCell.cloneNode(true));
@@ -68,7 +90,11 @@ function appendChildElements(
             (cardFooterTable.rows[0].insertCell(-1)).id = "percentageRatio";
             // User Input Field
             primaryElement.appendChild(uiElements.inputField);
+            // Settings Dismisser
+            primaryElement
+                .appendChild(secondaryElements.settingsDismisser);
             // Settings Overlay
+            uiElements.cardHeader.textContent = activeStore;
             primaryElement
                 .appendChild(secondaryElements.settingsOverlay)
                 .appendChild(uiElements.overlayHeader)
@@ -76,4 +102,4 @@ function appendChildElements(
         case "pageFooter":
             break;
     }
-}
+};

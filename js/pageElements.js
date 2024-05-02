@@ -8,6 +8,7 @@ export const pageElements = {
     },
     "secondaryElements" : {
         pageHeaderTable   : createTable("pageHeaderTable"),
+        settingsDismisser : createHtmlElement("div", { "id": "settingsDismisser" }),
         settingsOverlay   : createFluentWebComponent(
                                 "fluent-card",
                                 {
@@ -46,6 +47,13 @@ export const pageElements = {
                                     "class"         : "ms-Icon ms-Icon--Light"
                                 }
                             ),
+        deckToggleButton  : createFluentWebComponent(
+                                "fluent-button",
+                                {
+                                    "id"            : "deckToggleButton",
+                                    "appearance"    : "neutral"
+                                }
+                            ),
         expandingCell     : createHtmlElement("td", { "id"  : "expandingCell" }),
         signInButton      : createFluentWebComponent(
                                 "fluent-button",
@@ -59,15 +67,14 @@ export const pageElements = {
                                 "img",
                                 {
                                     "id"            : "microsoftLogo",
-                                    "src"           : "../FlashcardHub/media/images/microsoftLogo.svg",
+                                    "src"           : "../media/images/microsoftLogo.svg",
                                 }
                             ),
         cardContainer     : createFluentWebComponent("fluent-card", { "id" : "cardContainer" }),
         cardHeader        : createHtmlElement(
                                 "h4",
                                 {
-                                    "id"            : "cardHeader",
-                                    "textContent"   : "Hiragana"
+                                    "id"            : "cardHeader"
                                 }
                             ),
         cardFace          : createHtmlElement("h1", { "id"  : "cardFace" }),
@@ -77,7 +84,8 @@ export const pageElements = {
                                 "fluent-text-field",
                                 {
                                     "id"          : "inputField",
-                                    "placeholder" : "Type rōmaji here…"
+                                    "placeholder" : "Type rōmaji here…",
+                                    "disabled"    : true
                                 }
                             ),
         overlayHeader     : createHtmlElement(
@@ -124,4 +132,4 @@ function createFluentWebComponent(componentType = null, componentProperties = { 
     });
 
     return uiElement;
-}
+};

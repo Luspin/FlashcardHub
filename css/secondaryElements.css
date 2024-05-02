@@ -1,3 +1,23 @@
+/* Settings Dismisser */
+#settingsDismisser {
+    position         : fixed;
+    height           : 100%;
+    width            : 100%;
+    top              : 0;
+    left             : 0;
+    display          : none;
+    background-color : #28282880; /* Translucent */
+    visibility       : hidden;
+    transition       : opacity 0.5s ease, visibility 0s linear 0.5s;
+}
+
+#settingsDismisser.visible {
+    opacity          : 1;
+    visibility       : visible;
+    display          : block;
+    transition       : opacity 0.5s ease, visibility 0s linear 0s;
+}
+
 /* Settings Overlay */
 #settingsOverlay {
     position         : absolute;
@@ -7,8 +27,8 @@
     min-width        : 200px;
     padding          : 0 50px 0 50px;  /* 0 Top + Bottom; 50px Left + Right */
     z-index          : 1;
-    left             : 50%;
     top              : 50%;
+    left             : 50%;
     transform        : translate(-50%, -50%);
     overflow-x       : hidden;
     display          : flex;

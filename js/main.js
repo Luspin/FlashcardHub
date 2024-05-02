@@ -1,5 +1,5 @@
 import { loadStylesheets, loadPageElements } from "./pageBuilder.js";
-import { addEventListeners } from "./eventListeners.js";
+import { loadEventListeners } from "./eventListeners.js";
 import { loadUserPreferences } from "./userPreferences.js";
 
 // from "FluentUI/Web-Component (...) example" <https://codepen.io/0xtadash1/pen/qBVXPqz>
@@ -14,7 +14,6 @@ provideFluentDesignSystem()
 // load Stylesheets and Page Elements
 loadStylesheets();
 loadPageElements();
-
-// add Event Listeners and load User Preferences
-addEventListeners();
+// load Event Listeners and User Preferences
+loadEventListeners();
 loadUserPreferences();
