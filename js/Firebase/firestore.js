@@ -1,7 +1,7 @@
 import { collection, doc, getDocs, setDoc, getFirestore } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 import { firebaseApp } from "./firebaseApp.js";
-import { DB_NAME, availableStores, activeStore } from "../FlashcardHub/deckManagement.js";
+import { DB_NAME, availableStores, activeStore } from "../deckManagement.js";
 
 // reference the Firestore Database
 const firestoreDatabase = getFirestore(firebaseApp);
