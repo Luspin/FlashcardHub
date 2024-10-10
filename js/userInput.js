@@ -10,10 +10,14 @@ export async function evaluateAnswer(userResponse) {
 async function assessAnswer(userResponse) {
     if (userResponse.toLowerCase() == currentCard.answer) {
         currentCard.correctGuesses++;
+        var audio = new Audio('./media/audio/correctAnswer.mp3');
+        audio.play();
         await animateFlashcard(true);
     }
     else {
         currentCard.incorrectGuesses++;
+        var audio = new Audio('./media/audio/incorrectAnswer.mp3');
+        audio.play();
         await animateFlashcard(false);
     }
 };

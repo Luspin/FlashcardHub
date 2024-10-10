@@ -11,6 +11,8 @@ Can be accessed at https://luspin.github.io/FlashcardHub/
 - Score ratios
 - One-click Deck Toggler
 - Dark mode
+- Feedback Sounds
+- (Barely) animated Flashcards
 
 Potential Features
 - Only show cards with high failure ratios, i.e. "Hard" mode
@@ -21,3 +23,4 @@ Potential Features
 - Mixed-deck Mode
 - Voice input
 - ✔️ ❌ / ❌ ⭕ iconography style for score-keeping
+- Sound Mute
