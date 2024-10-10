@@ -1,6 +1,6 @@
 import { getAuth, OAuthProvider, onAuthStateChanged, signInWithPopup as firebaseSignIn, signOut as firebaseSignOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
-import { pageElements } from "../pageElements.js";
+import { pageElements } from "../FlashcardHub/pageElements.js";
 import { firebaseApp } from "./firebaseApp.js";
 import { retrieveUserScores } from "./firestore.js";
 

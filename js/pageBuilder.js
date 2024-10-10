@@ -4,7 +4,7 @@ import { activeStore } from "./deckManagement.js";
 export function loadStylesheets(styleSheets = []) {
     styleSheets.push(
         // local CSS files
-        '../css/main.css',
+        '../FlashcardHub/css/main.css',
         // external CSS files
         'https://static2.sharepointonline.com/files/fabric/office-ui-fabric-core/11.0.0/css/fabric.min.css'
     );
