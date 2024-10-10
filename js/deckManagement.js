@@ -108,6 +108,7 @@ async function createObjectStores(storeNames, options) {
 
                     // push 'storeName' into the 'availableStores' array
                     console.log(`'${storeName}' deck added to 'availableStores' array in localStorage.`)
+
                     availableStores.push({ "name": `${storeName}`, cardCount: 0 })
 
                     // update the 'availableStores' array in localStorage
@@ -141,7 +142,7 @@ async function populateDecks(
 
                 objectStore.getAll().onsuccess = (event) => {
                     if (event.target.result.length === 0) {
-                        fetch(`../FlashcardHub/Decks/${store.name}.js`)
+                        fetch(`../Decks/${store.name}.js`)
                             .then(httpResponse => httpResponse.json())
                             .then(jsonData => {
                                 const readWriteTransaction = databaseConnection.transaction(store.name, 'readwrite');
@@ -201,7 +202,31 @@ export function getActiveStore() {
 
 export function setActiveStore(storeName) {
     localStorage.setItem('activeStore', storeName);
-    pageElements.uiElements.cardHeader.textContent = storeName;
+
+    switch(storeName) {
+        case "Hiragana":
+            pageElements.uiElements.deckToggleButton.textContent = "あ";
+            break;
+        case "Katakana":
+            pageElements.uiElements.deckToggleButton.textContent = "ア";
+            break;
+        default:
+            pageElements.uiElements.deckToggleButton.textContent = "N/A";
+            break;
+    }
+    
+    pageElements.uiElements.cardHeader.textContent  = storeName;
+
+};
+
+export function toggleActiveStore() {
+    // retrieve index of current active store under "availableStores" array
+    const activeStoreIndex = availableStores.findIndex(store => store.name === getActiveStore());
+    // since the "availableStores" array is circular, we need to increment the index by 1
+    const nextStore = availableStores[(activeStoreIndex + 1) % availableStores.length];
+
+    setActiveStore(nextStore.name);
+    displayRandomFlashcard()
 };
 
 export async function displayRandomFlashcard(
@@ -231,8 +256,6 @@ export async function displayRandomFlashcard(
                     document.getElementById("correctGuesses").textContent = `✔️ ${currentCard.correctGuesses}`;
                     document.getElementById("incorrectGuesses").textContent = `❌ ${currentCard.incorrectGuesses}`;
                     document.getElementById("percentageRatio").textContent = `🎯 ${calculateCorrectGuessRatio(currentCard.correctGuesses, currentCard.incorrectGuesses)}%`;
-
-
 
                     // close the database connection against "DB_NAME"
                     database.close();

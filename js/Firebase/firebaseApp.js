@@ -9,7 +9,7 @@ const firebaseConfig = {
     messagingSenderId : "118661407631",
     projectId         : "fshub-36f76",
     storageBucket     : "fshub-36f76.appspot.com"
-};
+  };
 
 // initialize the Firebase App
 export const firebaseApp = initializeApp(firebaseConfig);

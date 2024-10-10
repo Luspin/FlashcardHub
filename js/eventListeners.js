@@ -1,4 +1,4 @@
-import { loadDecks } from "./deckManagement.js";
+import { loadDecks, toggleActiveStore } from "./deckManagement.js";
 import { toggleSettingsOverlay } from "./settingsOverlay.js";
 import { togglePageTheme } from "./pageThemes.js";
 import { microsoftSignIn, signOut } from "./Firebase/authentication.js";
@@ -13,7 +13,7 @@ export const loadEventListeners = () => {
     // Theme Toggle Button
     themeToggleButton.addEventListener('click', togglePageTheme);
     // Deck Toggle Button
-    deckToggleButton.addEventListener('click', function() { /* TODO */ });
+    deckToggleButton.addEventListener('click', toggleActiveStore);
     // Sign-In Button
     if (firebaseUser)
         signInButton.addEventListener('click', signOut);

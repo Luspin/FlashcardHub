@@ -19,12 +19,15 @@ async function assessAnswer(userResponse) {
 };
 
 async function recordAnswer() {
+    console.log("Recording answer for \"currentCard\":", currentCard); // log currentCard
+
     // establish a connection against "DB_NAME"
     const openRequest = indexedDB.open(DB_NAME);
 
     // handle successful connections against "DB_NAME"
     openRequest.onsuccess = (event) => {
         const databaseConnection = event.target.result;
+        console.log("Connected to DB:", DB_NAME); // log DB connection success
         // create a read-write transaction for the "activeStore" under "DB_NAME"
         const readWriteTransaction = databaseConnection.transaction(activeStore, 'readwrite');
         const objectStore = readWriteTransaction.objectStore(activeStore);
