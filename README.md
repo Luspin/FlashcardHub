@@ -24,3 +24,4 @@ Potential Features
 - Voice input
 - ✔️ ❌ / ❌ ⭕ iconography style for score-keeping
 - Sound Mute
+- Scores overview

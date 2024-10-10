@@ -69,19 +69,38 @@ const animateFlashcard = async (correctGuess = false) => {
     // temporarily show the correct answer from "currentCard"
     cardFace.textContent = `${currentCard.answer}`;
 
-    if (correctGuess) {
-        correctGuesses.textContent = `✔️ ${currentCard.correctGuesses}`;
-        cardContainer.style.backgroundColor = '#4caf50';
-    } else {
-        incorrectGuesses.textContent = `❌ ${currentCard.incorrectGuesses}`;
-        cardContainer.style.backgroundColor = '#ff6347';
-    }
+    // Apply flip animation
+    cardContainer.style.transition = 'transform 0.6s';
+    cardContainer.style.transform = 'rotateY(180deg)';
 
-    percentageRatio.textContent = `🎯 ${await calculateCorrectGuessRatio(currentCard.correctGuesses, currentCard.incorrectGuesses)}%`;
+    setTimeout(() => {
+        // Set the correct or incorrect style based on the guess
+        if (correctGuess) {
+            correctGuesses.textContent = `✔️ ${currentCard.correctGuesses}`;
+            cardContainer.style.backgroundColor = '#4caf50';
+        } else {
+            incorrectGuesses.textContent = `❌ ${currentCard.incorrectGuesses}`;
+            cardContainer.style.backgroundColor = '#ff6347';
+        }
 
-    // reset the card after a 2-second delay
+        // Reset the flip after showing the result
+        cardContainer.style.transform = 'rotateY(0deg)';
+        percentageRatio.textContent = `🎯 ${calculateCorrectGuessRatio(currentCard.correctGuesses, currentCard.incorrectGuesses)}%`;
+    }, 600); // Delay to match the flip animation
+
+    // Fade-out and reset the card after 2 seconds
     setTimeout(async () => {
-        cardContainer.style.backgroundColor = null;
-        await displayRandomFlashcard(activeStore);
+        // Add fade-out animation before resetting
+        cardContainer.style.transition = 'opacity 0.5s';
+        cardContainer.style.opacity = 0;
+
+        setTimeout(async () => {
+            // Reset card and make it fade back in
+            cardContainer.style.backgroundColor = null;
+            await displayRandomFlashcard(activeStore);
+
+            // Fade-in effect
+            cardContainer.style.opacity = 1;
+        }, 500); // Duration of fade-out
     }, 2000);
 };
