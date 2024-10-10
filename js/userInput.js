@@ -9,15 +9,15 @@ export async function evaluateAnswer(userResponse) {
 
 async function assessAnswer(userResponse) {
     if (userResponse.toLowerCase() == currentCard.answer) {
-        currentCard.correctGuesses++;
         var audio = new Audio('./media/audio/correctAnswer.mp3');
         audio.play();
+        currentCard.correctGuesses++;
         await animateFlashcard(true);
     }
     else {
-        currentCard.incorrectGuesses++;
         var audio = new Audio('./media/audio/incorrectAnswer.mp3');
         audio.play();
+        currentCard.incorrectGuesses++;
         await animateFlashcard(false);
     }
 };
@@ -66,12 +66,11 @@ async function recordAnswer() {
 };
 
 const animateFlashcard = async (correctGuess = false) => {
-    // temporarily show the correct answer from "currentCard"
-    cardFace.textContent = `${currentCard.answer}`;
-
     // Apply flip animation
-    cardContainer.style.transition = 'transform 0.6s';
+    cardContainer.style.transition = 'transform 0.8s';
     cardContainer.style.transform = 'rotateY(180deg)';
+
+    cardFace.textContent = "";
 
     setTimeout(() => {
         // Set the correct or incorrect style based on the guess
@@ -85,8 +84,10 @@ const animateFlashcard = async (correctGuess = false) => {
 
         // Reset the flip after showing the result
         cardContainer.style.transform = 'rotateY(0deg)';
+// temporarily show the correct answer from "currentCard"
+    cardFace.textContent = `${currentCard.answer}`;
         percentageRatio.textContent = `🎯 ${calculateCorrectGuessRatio(currentCard.correctGuesses, currentCard.incorrectGuesses)}%`;
-    }, 600); // Delay to match the flip animation
+    }, 800); // Delay to match the flip animation
 
     // Fade-out and reset the card after 2 seconds
     setTimeout(async () => {
