@@ -1,5 +1,5 @@
-import { pageElements } from "../js/pageElements.js";
-import { activeStore } from "../js/deckManagement.js";
+import { pageElements } from "./pageElements.js";
+import { activeStore } from "./deckManagement.js";
 
 export function loadStylesheets(styleSheets = []) {
     styleSheets.push(
